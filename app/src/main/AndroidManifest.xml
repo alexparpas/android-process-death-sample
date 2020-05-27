@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".troublemakers.stateful.TroublemakerStatefulActivity" />
+        <activity android:name=".troublemakers.singleton.TroublemakerSingletonActivity" />
+        <activity android:name=".examples.recycler.RecyclerViewExampleActivity" />
+        <activity android:name=".examples.navigation.NavigationExampleActivity" />
+        <activity android:name=".examples.basic.BasicExampleActivity" />
     </application>
 
 </manifest>
