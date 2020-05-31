@@ -1,6 +1,7 @@
 package com.alexparpas.sample.process.examples.recycler
 
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -30,6 +31,20 @@ class RecyclerViewExampleActivity : AppCompatActivity() {
         adapter.submitList(generateItems(1000))
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        //Save recycler view state
+        val rvState = binding.recyclerView.layoutManager?.onSaveInstanceState()
+        outState.putParcelable(ARG_RV_STATE, rvState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val rvState = savedInstanceState.getParcelable<Parcelable>(ARG_RV_STATE)
+        rvState?.let { binding.recyclerView.layoutManager?.onRestoreInstanceState(it) }
+    }
+
     private fun initRecyclerView(adapter: RecyclerViewExampleAdapter) {
         val layoutManager = LinearLayoutManager(this)
 
@@ -48,5 +63,9 @@ class RecyclerViewExampleActivity : AppCompatActivity() {
         }
 
         return items
+    }
+
+    companion object {
+        const val ARG_RV_STATE = "ARG_RV_STATE"
     }
 }
