@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import com.alexparpas.sample.process.App
 import com.alexparpas.sample.process.databinding.ActivitySavedStateExampleBinding
 
+@SuppressLint("SetTextI18n")
 class SavedStateExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySavedStateExampleBinding
 
@@ -39,7 +40,6 @@ class SavedStateExampleActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun observeViewModel() {
         viewModel.formLiveData.observe(this, Observer { form ->
             binding.savedTextView.text = "Saved in ViewModel $form"

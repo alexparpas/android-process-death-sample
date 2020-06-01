@@ -24,7 +24,6 @@ object LoginManager {
         //Other operations
 
         callback.invoke()
-
     }
 
     fun logout(callback: () -> Unit) {

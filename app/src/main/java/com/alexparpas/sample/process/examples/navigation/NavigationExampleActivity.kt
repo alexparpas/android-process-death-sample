@@ -1,19 +1,14 @@
 package com.alexparpas.sample.process.examples.navigation
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.alexparpas.sample.process.App
 import com.alexparpas.sample.process.R
 import com.alexparpas.sample.process.databinding.ActivityNavigationBinding
 import com.alexparpas.sample.process.utils.switchFragment
-import javax.inject.Inject
 
 class NavigationExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNavigationBinding
-
-    private val viewModel: NavigationExampleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as App).appComponent.inject(this)
