@@ -3,9 +3,8 @@ package com.alexparpas.sample.process.examples.recycler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
-class RecyclerViewExampleViewModel @Inject constructor() : ViewModel() {
+class RecyclerViewExampleViewModel : ViewModel() {
     private val _viewState = MutableLiveData<ViewState>()
     val viewState: LiveData<ViewState> = _viewState
 

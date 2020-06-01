@@ -13,8 +13,7 @@ import javax.inject.Inject
 class NavigationExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNavigationBinding
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: NavigationExampleViewModel by viewModels { viewModelFactory }
+    private val viewModel: NavigationExampleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as App).appComponent.inject(this)

@@ -4,16 +4,13 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.alexparpas.sample.process.App
 import com.alexparpas.sample.process.databinding.ActivitySavedStateExampleBinding
-import javax.inject.Inject
 
 class SavedStateExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySavedStateExampleBinding
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: SavedStateExampleViewModel by viewModels { viewModelFactory }
+    private val viewModel: SavedStateExampleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as App).appComponent.inject(this)

@@ -11,8 +11,7 @@ import javax.inject.Inject
 class TroublemakerSingletonActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTroublemakerSingletonBinding
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: TroublemakerSingletonViewModel by viewModels { viewModelFactory }
+    private val viewModel: TroublemakerSingletonViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as App).appComponent.inject(this)

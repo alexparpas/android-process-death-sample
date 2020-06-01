@@ -5,18 +5,15 @@ import android.os.Parcelable
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alexparpas.sample.process.App
 import com.alexparpas.sample.process.databinding.ActivityRecyclerViewExampleBinding
-import javax.inject.Inject
 
 class RecyclerViewExampleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewExampleBinding
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val viewModel: RecyclerViewExampleViewModel by viewModels { viewModelFactory }
+    private val viewModel: RecyclerViewExampleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as App).appComponent.inject(this)
