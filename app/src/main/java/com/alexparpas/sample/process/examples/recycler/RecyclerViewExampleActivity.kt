@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,19 +29,21 @@ class RecyclerViewExampleActivity : AppCompatActivity() {
         val adapter = RecyclerViewExampleAdapter()
         initRecyclerView(adapter)
 
-        adapter.submitList(generateItems(1000))
+        observeViewState(adapter)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        //Save recycler view state
+        //Save layout manager state
         val rvState = binding.recyclerView.layoutManager?.onSaveInstanceState()
         outState.putParcelable(ARG_RV_STATE, rvState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+
+        //Restore layout manager state
         val rvState = savedInstanceState.getParcelable<Parcelable>(ARG_RV_STATE)
         rvState?.let { binding.recyclerView.layoutManager?.onRestoreInstanceState(it) }
     }
@@ -55,14 +58,10 @@ class RecyclerViewExampleActivity : AppCompatActivity() {
         }
     }
 
-    private fun generateItems(size: Int): List<String> {
-        val items = mutableListOf<String>()
-
-        repeat(size) {
-            items.add(it.toString())
-        }
-
-        return items
+    private fun observeViewState(adapter: RecyclerViewExampleAdapter) {
+        viewModel.viewState.observe(this, Observer { viewState ->
+            adapter.submitList(viewState.items)
+        })
     }
 
     companion object {
