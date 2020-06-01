@@ -1,7 +1,7 @@
 package com.alexparpas.sample.process.di
 
 import com.alexparpas.sample.process.MainActivity
-import com.alexparpas.sample.process.examples.basic.BasicExampleActivity
+import com.alexparpas.sample.process.examples.basic.SavedStateExampleActivity
 import com.alexparpas.sample.process.examples.navigation.NavigationExampleActivity
 import com.alexparpas.sample.process.examples.navigation.NavigationExampleFragment1
 import com.alexparpas.sample.process.examples.navigation.NavigationExampleFragment2
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class, ViewModelModule::class])
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
-    fun inject(basicExampleActivity: BasicExampleActivity)
+    fun inject(savedStateExampleActivity: SavedStateExampleActivity)
     fun inject(navigationExampleActivity: NavigationExampleActivity)
     fun inject(recyclerViewExampleActivity: RecyclerViewExampleActivity)
     fun inject(troublemakerSingletonActivity: TroublemakerSingletonActivity)

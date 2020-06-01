@@ -21,7 +21,7 @@
         <activity android:name=".troublemakers.singleton.TroublemakerSingletonActivity" />
         <activity android:name=".examples.recycler.RecyclerViewExampleActivity" />
         <activity android:name=".examples.navigation.NavigationExampleActivity" />
-        <activity android:name=".examples.basic.BasicExampleActivity" />
+        <activity android:name=".examples.basic.SavedStateExampleActivity" />
     </application>
 
 </manifest>

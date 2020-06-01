@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.alexparpas.sample.process.databinding.ActivityMainBinding
-import com.alexparpas.sample.process.examples.basic.BasicExampleActivity
+import com.alexparpas.sample.process.examples.basic.SavedStateExampleActivity
 import com.alexparpas.sample.process.examples.navigation.NavigationExampleActivity
 import com.alexparpas.sample.process.examples.recycler.RecyclerViewExampleActivity
 import com.alexparpas.sample.process.troublemakers.singleton.TroublemakerSingletonActivity
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleActions() {
-        binding.basicExampleButton.setOnClickListener { launchActivity(BasicExampleActivity::class.java) }
+        binding.basicExampleButton.setOnClickListener { launchActivity(SavedStateExampleActivity::class.java) }
         binding.navigationButton.setOnClickListener { launchActivity(NavigationExampleActivity::class.java) }
         binding.recyclerViewButton.setOnClickListener { launchActivity(RecyclerViewExampleActivity::class.java) }
         binding.singletonTroublemakerButton.setOnClickListener { launchActivity(TroublemakerSingletonActivity::class.java) }

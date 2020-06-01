@@ -2,7 +2,7 @@ package com.alexparpas.sample.process.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.alexparpas.sample.process.examples.basic.BasicExampleViewModel
+import com.alexparpas.sample.process.examples.basic.SavedStateExampleViewModel
 import com.alexparpas.sample.process.examples.navigation.NavigationExampleViewModel
 import com.alexparpas.sample.process.examples.recycler.RecyclerViewExampleViewModel
 import com.alexparpas.sample.process.troublemakers.singleton.TroublemakerSingletonViewModel
@@ -18,8 +18,8 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(BasicExampleViewModel::class)
-    abstract fun bindBasicExampleViewModel(basicExampleViewModel: BasicExampleViewModel): ViewModel
+    @ViewModelKey(SavedStateExampleViewModel::class)
+    abstract fun bindSavedStateExampleViewModel(savedStateExampleViewModel: SavedStateExampleViewModel): ViewModel
 
     @Binds
     @IntoMap
