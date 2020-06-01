@@ -1,5 +1,6 @@
 package com.alexparpas.sample.process.examples.basic
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -38,6 +39,7 @@ class SavedStateExampleActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun observeViewModel() {
         viewModel.formLiveData.observe(this, Observer { form ->
             binding.savedTextView.text = "Saved in ViewModel $form"

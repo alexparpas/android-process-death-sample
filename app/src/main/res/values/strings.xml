@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">android-process-death-sample</string>
+
+    <string name="empty_string"/>
+    <string name="logged_in_status">Logged In</string>
+    <string name="logged_out_status">Logged Out</string>
 </resources>
