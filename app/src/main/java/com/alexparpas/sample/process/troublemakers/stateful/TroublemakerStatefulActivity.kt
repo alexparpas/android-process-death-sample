@@ -13,6 +13,7 @@ class TroublemakerStatefulActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTroublemakerStatefulInstancesBinding
 
     private val viewModel: TroublemakerStatefulViewModel by viewModels()
+    private var gameRoomId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         (application as App).appComponent.inject(this)
@@ -31,27 +32,27 @@ class TroublemakerStatefulActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun render() {
         //Room text view
-        binding.gameRoomTextView.text = "Game Room: ${viewModel.gameRoomId}"
+        binding.gameRoomTextView.text = "Game Room: $gameRoomId"
 
         //Playing text view
-        binding.playingTextView.visibility = if (viewModel.gameRoomId == null) View.GONE else View.VISIBLE
+        binding.playingTextView.visibility = if (gameRoomId == null) View.GONE else View.VISIBLE
 
         //Game (in progress) views
         binding.makeMoveButton.apply {
-            visibility = if (viewModel.gameRoomId == null) View.GONE else View.VISIBLE
+            visibility = if (gameRoomId == null) View.GONE else View.VISIBLE
             setOnClickListener { onMakeMoveClicked() }
         }
     }
 
     private fun onCreateRoomClicked() {
         viewModel.createGameRoom { gameRoomId ->
-            viewModel.gameRoomId = gameRoomId
+            this.gameRoomId = gameRoomId
             render()
         }
     }
 
     private fun onMakeMoveClicked() {
-        viewModel.gameRoomId?.let {
+        gameRoomId?.let {
             Toast.makeText(this, "Syncing room $it", Toast.LENGTH_SHORT).show()
             viewModel.syncGame(it)
         }
