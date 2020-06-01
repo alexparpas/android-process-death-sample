@@ -11,6 +11,30 @@
     tools:ignore="HardcodedText"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Troublemakers"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        />
+
+    <Button
+        android:id="@+id/stateTroublemakerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stateful Instances"
+        />
+
+    <Button
+        android:id="@+id/singletonTroublemakerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Singletons"
+        />
+
     <!-- Mock register form where ui state is saved
     in configuration changes and process death as well -->
     <TextView
@@ -44,29 +68,6 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Saved State Example"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Troublemakers"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        />
-
-    <Button
-        android:id="@+id/stateTroublemakerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stateful Instances"
-        />
-
-    <Button
-        android:id="@+id/singletonTroublemakerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Singletons"
         />
 
 </LinearLayout>
